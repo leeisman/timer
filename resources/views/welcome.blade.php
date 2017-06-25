@@ -13,7 +13,7 @@
 
     <meta property="og:url" content="http://standup.orgates.net"/>
 
-    <meta property="og:image" content="http://standup.orgates.net/timer.png"/>
+    <meta property="og:image" content="http://standup.orgates.net/timer.jpg"/>
 
     <meta property="og:site_name" content="健康stand up 計時器" />
 
@@ -95,12 +95,7 @@
         </tr>
         </tbody>
     </table>
-    <div class="fb-share-button" data-href="http://standup.orgates.net/"
-         data-layout="button_count" data-size="small"
-         data-mobile-iframe="true">
-        <a class="fb-xfbml-parse-ignore" target="_blank"
-           href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fstandup.orgates.net%2F&amp;src=sdkpreparse">分享</a>
-    </div>
+    <div class="fb-like" data-href="http://standup.orgates.net/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
 
 </div>
 </body>
