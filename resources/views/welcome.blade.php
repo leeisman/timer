@@ -16,11 +16,11 @@
     {{--<meta property="og:image" content="http://standup.orgates.net/timer.jpg"/>--}}
 
     {{--<meta property="og:site_name" content="健康stand up 計時器" />--}}
-    <meta property="og:url"           content="http://www.your-domain.com/your-page.html" />
+    <meta property="og:url"           content="http://standup.orgates.net" />
     <meta property="og:type"          content="website" />
     <meta property="og:title"         content="Your Website Title" />
     <meta property="og:description"   content="Your description" />
-    <meta property="og:image"         content="http://www.your-domain.com/path/image.jpg" />
+    <meta property="og:image"         content="http://standup.orgates.net/timer.jpg" />
 
 
     {{--facebook end--}}
