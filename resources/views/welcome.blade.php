@@ -7,7 +7,7 @@
 
     <meta name="og:description" content="為了健康設計間單操作方式，及時彈跳視窗，告知辛苦工作的朋友們請起來走走動動" />
 
-    <meta property="og:title" content="健康stand up 計時器健康stand up 計時器"/>
+    <meta property="og:title" content="健康stand up 計時器"/>
 
     <meta property="og:type" content="website"/>
 
