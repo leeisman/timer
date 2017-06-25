@@ -16,7 +16,7 @@
 
     <meta property="og:url" content="http://standup.orgates.net"/>
 
-    <meta property="og:image" content="timer.ico"/>
+    <meta property="og:image" content="timer.png"/>
 
     <meta property="og:site_name" content="健康stand up 計時器" />
 
