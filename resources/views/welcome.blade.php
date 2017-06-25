@@ -168,10 +168,10 @@
 
     function notifyMe() {
 
-        var title = "Orgates message";
+        var title = "工作要緊身體也要顧，起來走走動動吧";
 
         var options = {
-            body: "stand up! stand up! stand up! 因為很重要所以要說三次",
+            body: "stand up! stand up! stand up!",
             icon: "timer.ico"
         }
 
