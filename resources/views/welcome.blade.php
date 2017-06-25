@@ -3,7 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:image" content="timer.ico" />
+    <meta property="og:title" content="Timer Orgates" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="shortcut icon" href="timer.ico" />
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -15,7 +21,7 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://cdn.bootcss.com/vue/2.3.4/vue.min.js"></script>
-    <title>Timer Orgates </title>
+    <title>健康計時器</title>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
@@ -26,20 +32,20 @@
 <div id="main-content" class="container">
     <h2>
         <img src="timer.ico" style="max-height: 120px; max-width: 120px">
-        Orgates Timer Service
+        Orgates Stand up !!!
     </h2>
-    <p style="color: red">please set the expected time below</p>
+    <p style="color: red">請在下方輸入 stand up 時間 </p>
 
     <div class="make-switch switch-small">
-        Automatic recording time：<input type="checkbox" checked="true" data-checkbox="VALUE1" class="alert-status">
+        自動記錄：<input type="checkbox" checked="true" data-checkbox="VALUE1" class="alert-status">
     </div>
 
     <table class="table">
         <thead>
         <tr>
-            <th>Hour</th>
-            <th>Minute</th>
-            <th>Second</th>
+            <th>小時</th>
+            <th>分鐘</th>
+            <th>秒鐘</th>
             <th>
             </th>
         </tr>
@@ -48,19 +54,19 @@
         <tr>
             <td>
                 <input id="hour" type="text" v-model="hour">
-                <input type="button" value="Return to zero"
+                <input type="button" value="歸零"
                        class="btn btn-warning" onclick="returnZero('hour')">
             </td>
             <td><input id="minute" type="text" v-model="minute">
-                <input type="button" value="Return to zero"
+                <input type="button" value="歸零"
                        class="btn btn-warning" onclick="returnZero('minute')">
             </td>
             <td><input id="second" type="text" v-model="second">
-                <input type="button" value="Return to zero"
+                <input type="button" value="歸零"
                        class="btn btn-warning" onclick="returnZero('second')">
             </td>
             <td>
-                <input type="button" value="setting" class="btn btn-primary"
+                <input type="button" value="設定" class="btn btn-primary"
                        onclick="settingLoopAlert()">
             </td>
         </tr>
@@ -139,7 +145,7 @@
         var title = "Orgates message";
 
         var options = {
-            body: "stand up! stand up! stand up!",
+            body: "stand up! stand up! stand up! 因為很重要所以要說三次",
             icon: "timer.ico"
         }
 
