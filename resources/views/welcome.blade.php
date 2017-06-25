@@ -5,17 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     {{--facebook start--}}
 
-    <meta name="og:description" content="為了健康設計間單操作方式，及時彈跳視窗，告知辛苦工作的朋友們請起來走走動動" />
+    {{--<meta name="og:description" content="為了健康設計間單操作方式，及時彈跳視窗，告知辛苦工作的朋友們請起來走走動動" />--}}
 
-    <meta property="og:title" content="健康stand up 計時器"/>
+    {{--<meta property="og:title" content="健康stand up 計時器"/>--}}
 
-    <meta property="og:type" content="website"/>
+    {{--<meta property="og:type" content="website"/>--}}
 
-    <meta property="og:url" content="http://standup.orgates.net"/>
+    {{--<meta property="og:url" content="http://standup.orgates.net"/>--}}
 
-    <meta property="og:image" content="http://standup.orgates.net/timer.jpg"/>
+    {{--<meta property="og:image" content="http://standup.orgates.net/timer.jpg"/>--}}
 
-    <meta property="og:site_name" content="健康stand up 計時器" />
+    {{--<meta property="og:site_name" content="健康stand up 計時器" />--}}
+    <meta property="og:url"           content="http://www.your-domain.com/your-page.html" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Your Website Title" />
+    <meta property="og:description"   content="Your description" />
+    <meta property="og:image"         content="http://www.your-domain.com/path/image.jpg" />
+
 
     {{--facebook end--}}
 
