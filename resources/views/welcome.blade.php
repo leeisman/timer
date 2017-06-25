@@ -95,7 +95,6 @@
 </html>
 <script>
     Notification.requestPermission().then(function(result) {
-        
         console.log(result);
     });
 </script>
