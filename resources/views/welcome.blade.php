@@ -5,28 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     {{--facebook start--}}
 
-    {{--<meta name="og:description" content="為了健康設計間單操作方式，及時彈跳視窗，告知辛苦工作的朋友們請起來走走動動" />--}}
+    <meta name="og:description" content="為了健康設計間單操作方式，及時彈跳視窗，告知辛苦工作的朋友們請起來走走動動"/>
 
-    {{--<meta property="og:title" content="健康stand up 計時器"/>--}}
+    <meta property="og:title" content="健康stand up 計時器"/>
 
-    {{--<meta property="og:type" content="website"/>--}}
+    <meta property="og:type" content="health"/>
 
-    {{--<meta property="og:url" content="http://standup.orgates.net"/>--}}
+    <meta property="og:url" content="http://standup.orgates.net"/>
 
-    {{--<meta property="og:image" content="http://standup.orgates.net/timer.jpg"/>--}}
+    <meta property="og:image" content="http://standup.orgates.net/timer.jpg"/>
 
-    {{--<meta property="og:site_name" content="健康stand up 計時器" />--}}
-    <meta property="og:url"           content="http://standup.orgates.net" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="Your Website Title" />
-    <meta property="og:description"   content="Your description" />
-    <meta property="og:image"         content="http://standup.orgates.net/timer.jpg" />
-
+    <meta property="og:site_name" content="健康stand up 計時器"/>
 
     {{--facebook end--}}
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="健康計時器" />
 
     <link rel="shortcut icon" href="timer.ico" />
 
