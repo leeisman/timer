@@ -56,7 +56,7 @@
 <div id="main-content" class="container">
     <h2>
         <img src="timer.ico" style="max-height: 120px; max-width: 120px">
-        Orgates Stand up !!!
+        健康 Stand up 計時器 !!!
     </h2>
     <p style="color: red">請在下方輸入 stand up 時間 </p>
 
