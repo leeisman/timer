@@ -6,8 +6,25 @@
     <meta property="og:image" content="timer.ico" />
     <meta property="og:title" content="Timer Orgates" />
 
+    {{--facebook start--}}
+
+    <meta name="og:description" content="長期工作久坐的各位，是否該起來伸展一下筋骨了" />
+
+    <meta property="og:title" content="健康stand up 計時器健康stand up 計時器"/>
+
+    <meta property="og:type" content="website"/>
+
+    <meta property="og:url" content="http://standup.orgates.net"/>
+
+    <meta property="og:image" content="timer.ico"/>
+
+    <meta property="og:site_name" content="健康stand up 計時器" />
+
+    {{--facebook end--}}
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <link rel="shortcut icon" href="timer.ico" />
 
     <!-- Latest compiled and minified CSS -->
@@ -21,7 +38,7 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://cdn.bootcss.com/vue/2.3.4/vue.min.js"></script>
-    <title>健康計時器</title>
+    <title>Stand up 計時器</title>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
