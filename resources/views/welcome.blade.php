@@ -13,7 +13,7 @@
 
     <meta property="og:url" content="http://standup.orgates.net"/>
 
-    <meta property="og:image" content="timer.png"/>
+    <meta property="og:image" content="http://standup.orgates.net/timer.png"/>
 
     <meta property="og:site_name" content="健康stand up 計時器" />
 
