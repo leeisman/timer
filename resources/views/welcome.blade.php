@@ -3,12 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta property="og:image" content="timer.ico" />
-    <meta property="og:title" content="Timer Orgates" />
-
     {{--facebook start--}}
 
-    <meta name="og:description" content="長期工作久坐的各位，是否該起來伸展一下筋骨了" />
+    <meta name="og:description" content="為了健康設計間單操作方式，及時彈跳視窗，告知辛苦工作的朋友們請起來走走動動" />
 
     <meta property="og:title" content="健康stand up 計時器健康stand up 計時器"/>
 
