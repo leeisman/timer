@@ -105,8 +105,6 @@
 </html>
 <script>
 
-    var name = 'time';
-
     var vm = new Vue({
         el: '#main-content',
         data: {
