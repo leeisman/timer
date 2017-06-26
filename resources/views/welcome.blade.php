@@ -21,9 +21,9 @@
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="健康計時器" />
+    <meta name="keywords" content="健康計時器"/>
 
-    <link rel="shortcut icon" href="timer.ico" />
+    <link rel="shortcut icon" href="timer.ico"/>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -45,10 +45,11 @@
 </head>
 <body>
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
+<script>(function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
+        js = d.createElement(s);
+        js.id = id;
         js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.9";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
@@ -79,24 +80,25 @@
             <td>
                 <input id="hour" type="text" v-model="hour">
                 <input type="button" value="歸零"
-                       class="btn btn-warning" onclick="returnZero('hour')">
+                       class="btn btn-warning" @click="returnZero('hour')">
             </td>
             <td><input id="minute" type="text" v-model="minute">
                 <input type="button" value="歸零"
-                       class="btn btn-warning" onclick="returnZero('minute')">
+                       class="btn btn-warning" @click="returnZero('minute')">
             </td>
             <td><input id="second" type="text" v-model="second">
                 <input type="button" value="歸零"
-                       class="btn btn-warning" onclick="returnZero('second')">
+                       class="btn btn-warning" @click="returnZero('second')">
             </td>
             <td>
                 <input type="button" value="設定" class="btn btn-primary"
-                       onclick="settingLoopAlert()">
+                @click="setLoopAlert()">
             </td>
         </tr>
         </tbody>
     </table>
-    <div class="fb-like" data-href="http://standup.orgates.net/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+    <div class="fb-like" data-href="http://standup.orgates.net/" data-layout="standard" data-action="like"
+         data-size="small" data-show-faces="true" data-share="true"></div>
 
 </div>
 </body>
@@ -111,134 +113,126 @@
             hour: 1,
             minute: 0,
             second: 0,
-            state: false
-        }
-    });
+            state: false,
+            timeOut: null,
+            notifyEnable: false,
+            cookieName: 'timercookie',
+            notifyTitle: '工作要緊身體也要顧，起來走走動動吧'
+        },
+        methods: {
+            notifyMe: function () {
+                var title = this.notifyTitle;
 
-    function returnZero(type) {
-        if (type = 'hour') {
-            vm.hour = 0;
-        }
-        if (type = 'minute') {
-            vm.minute = 0;
-        }
-        if (type = 'second') {
-            vm.second = 0;
-        }
-    }
+                var options = {
+                    body: "stand up! stand up! stand up!",
+                    icon: "timer.ico"
+                }
 
-    var notifyEnable = false;
-    var timeOut;
-    function loopAlert() {
+                // Let's check if the browser supports notifications
+                if (!("Notification" in window)) {
+                    alert("This browser does not support system notifications");
+                }
 
-        time = convertSecond(vm.hour, vm.minute, vm.second);
-
-        if (time > 1) {
-
-            that = this;
-            if (notifyEnable) {
-                notifyMe();
-            }
-
-            timeOut = setTimeout(function () {
-                that.loopAlert(time)
-            }, time);
-        }
-    }
-
-    function settingLoopAlert() {
-
-        clearTimeout(timeOut);
-
-        notifyEnable = false;
-
-        if (vm.state = true) {
-            storeTime();
-        }
-
-        loopAlert();
-
-        notifyEnable = true;
-    }
-
-
-    Notification.requestPermission().then(function (result) {
-        console.log(result);
-    });
-
-    function notifyMe() {
-
-        var title = "工作要緊身體也要顧，起來走走動動吧";
-
-        var options = {
-            body: "stand up! stand up! stand up!",
-            icon: "timer.ico"
-        }
-
-        // Let's check if the browser supports notifications
-        if (!("Notification" in window)) {
-            alert("This browser does not support system notifications");
-        }
-
-        // Let's check whether notification permissions have already been granted
-        else if (Notification.permission === "granted") {
-            // If it's okay let's create a notification
-            var notification = new Notification(title, options);
-        }
-
-        // Otherwise, we need to ask the user for permission
-        else if (Notification.permission !== 'denied') {
-            Notification.requestPermission(function (permission) {
-                // If the user accepts, let's create a notification
-                if (permission === "granted") {
+                // Let's check whether notification permissions have already been granted
+                else if (Notification.permission === "granted") {
+                    // If it's okay let's create a notification
                     var notification = new Notification(title, options);
                 }
-            });
-        }
 
-        // Finally, if the user has denied notifications and you
-        // want to be respectful there is no need to bother them any more.
-    }
+                // Otherwise, we need to ask the user for permission
+                else if (Notification.permission !== 'denied') {
+                    Notification.requestPermission(function (permission) {
+                        // If the user accepts, let's create a notification
+                        if (permission === "granted") {
+                            var notification = new Notification(title, options);
+                        }
+                    });
+                }
+            },
+            returnZero: function () {
+                if (type = 'hour') {
+                    vm.hour = 0;
+                }
+                if (type = 'minute') {
+                    vm.minute = 0;
+                }
+                if (type = 'second') {
+                    vm.second = 0;
+                }
+            },
+            setLoopAlert: function () {
 
-    function setCookie(name) {
-        document.cookie = name + "=" +
-                vm.hour + ":" + vm.minute + ":" + vm.second +
-                ";path=/";
-    }
+                clearTimeout(this.timeOut);
 
-    function getCookie(name) {
-        var decodedCookie = decodeURIComponent(document.cookie);
-        var ca = decodedCookie.split(';');
+                this.notifyEnable = false;
 
-        for (var i = 0; i < ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0) == ' ') {
-                c = c.substring(1);
+                if (this.state = true) {
+                    this.storeTime();
+                }
+
+                alert('開始啟動每'+this.getSecond()/1000+'秒數起來走動走動！');
+
+                this.loopAlert();
+
+                this.notifyEnable = true;
+            },
+            loopAlert: function () {
+                time = this.getSecond();
+
+                if (time > 1) {
+
+                    that = this;
+                    if (this.notifyEnable) {
+                        this.notifyMe();
+                    }
+
+                    this.timeOut = setTimeout(function () {
+                        that.loopAlert(time)
+                    }, time);
+                }
+            },
+            getSecond: function () {
+                return this.hour * 60 * 60 * 1000 +
+                        this.minute * 60 * 1000 +
+                        this.second * 1000;
+            },
+            storeTime: function () {
+                name = this.cookieName;
+                this.setCookie(name);
+                var timeArray = this.getCookie(name).split(':');
+                this.putVmTime(timeArray);
+            },
+            putVmTime: function (timeArray) {
+                vm.hour = timeArray[0];
+                vm.minute = timeArray[1];
+                vm.second = timeArray[2];
+            },
+            setCookie: function (name) {
+                document.cookie = name + "=" +
+                        vm.hour + ":" + vm.minute + ":" + vm.second +
+                        ";path=/";
+            },
+            getCookie: function (name) {
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var ca = decodedCookie.split(';');
+
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length + 1, c.length);
+                    }
+                }
+            },
+            init: function () {
+                var timeArray = this.getCookie(this.cookieName).split(':');
+                this.putVmTime(timeArray);
+                this.setLoopAlert();
             }
-            if (c.indexOf(name) == 0) {
-                return c.substring(name.length + 1, c.length);
-            }
         }
-    }
-
-    function storeTime() {
-
-        setCookie(name);
-        var timeArray = getCookie(name).split(':');
-        putVmTime(timeArray);
-    }
-
-    function putVmTime(timeArray) {
-        vm.hour = timeArray[0];
-        vm.minute = timeArray[1];
-        vm.second = timeArray[2];
-    }
-
-    function convertSecond(hour, minute, second) {
-        return hour * 60 * 60 * 1000 +
-                minute * 60 * 1000 +
-                second * 1000;
-    }
+    });
 
     $(function () {
         $('.alert-status').bootstrapSwitch('state', true);
@@ -247,9 +241,7 @@
             vm.state = state;
         });
 
-        var timeArray = getCookie(name).split(':');
-        putVmTime(timeArray);
-
+        vm.init();
     });
 
 </script>
