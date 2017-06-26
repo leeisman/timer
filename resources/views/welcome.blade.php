@@ -17,7 +17,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     {{--facebook start--}}
 
-    <meta name="og:description" content="為了健康設計簡單操作方式，及時彈跳視窗，
+    <meta name="og:description" content="為了健康設計簡單操作方式，即時彈跳視窗，
     通知辛苦工作的朋友們請起來走走動動"/>
 
     <meta property="og:title" content="健康stand up 計時器"/>
@@ -35,7 +35,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="健康計時器"/>
-    <meta name="description" content="為了健康設計簡單操作方式，及時彈跳視窗，
+    <meta name="description" content="為了健康設計簡單操作方式，即時彈跳視窗，
     通知辛苦工作的朋友們請起來走走動動"/>
 
 
