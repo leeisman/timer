@@ -84,10 +84,10 @@
     </div>
 
     <div class="col-md-12">
-        <h2>
+        <h1>
             <img src="timer.ico" style="max-height: 120px; max-width: 120px">
             健康 Stand up 計時器 !!!
-        </h2>
+        </h1>
         <p style="color: red">請在下方輸入 stand up 時間 </p>
         <div class="make-switch switch-small">
             自動記錄：<input type="checkbox" checked="true" data-checkbox="VALUE1" class="alert-status">
@@ -133,6 +133,35 @@
     <div class="col-md-12">
         <div class="fb-like" data-href="http://standup.orgates.net/" data-layout="standard" data-action="like"
              data-size="small" data-show-faces="true" data-share="true"></div>
+    </div>
+
+
+    <div class="col-md-12">
+        <h3>一張圖讓你看清久坐不動的危機</h3>
+        <img src="https://fpscdn.yam.com/MjU0NDA3ODd3b3JsZA==/e8d53a8c8b7c4587.jpg" alt="">
+    </div>
+
+    <div class="col-md-12">
+
+        <h2>resource
+            <a href="http://apps.washingtonpost.com/g/page/national/the-health-hazards-of-sitting/750/">
+                Washington Post
+            </a>
+        </h2>
+
+        <div class="col-md-5">
+            <ul class="list-group" style="margin-top:40px">
+                <li class="list-group-item active"><h4>正確的坐姿</h4></li>
+                <li class="list-group-item">不向前傾斜</li>
+                <li class="list-group-item">肩寬鬆弛</li>
+                <li class="list-group-item">靠近側面的胳膊</li>
+                <li class="list-group-item">背部被支撐</li>
+                <li class="list-group-item">腳平放在地上</li>
+            </ul>
+        </div>
+
+
+
     </div>
 
 </div>
@@ -252,9 +281,9 @@
                 this.putVmTime(timeArray);
             },
             putVmTime: function (timeArray) {
-                vm.hour =  parseInt(timeArray[0]);
-                vm.minute =  parseInt(timeArray[1]);
-                vm.second =  parseInt(timeArray[2]);
+                vm.hour = parseInt(timeArray[0]);
+                vm.minute = parseInt(timeArray[1]);
+                vm.second = parseInt(timeArray[2]);
             },
             setCookie: function (name) {
                 document.cookie = name + "=" +
