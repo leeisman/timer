@@ -240,13 +240,15 @@
                 this.putVmTime(timeArray);
             },
             putVmTime: function (timeArray) {
-                vm.hour = timeArray[0];
-                vm.minute = timeArray[1];
-                vm.second = timeArray[2];
+                vm.hour =  parseInt(timeArray[0]);
+                vm.minute =  parseInt(timeArray[1]);
+                vm.second =  parseInt(timeArray[2]);
             },
             setCookie: function (name) {
                 document.cookie = name + "=" +
-                        vm.hour + ":" + vm.minute + ":" + vm.second +
+                        parseInt(vm.hour) + ":" +
+                        parseInt(vm.minute) + ":" +
+                        parseInt(vm.second) +
                         ";path=/";
             },
             getCookie: function (name) {
