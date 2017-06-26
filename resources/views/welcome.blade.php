@@ -38,8 +38,9 @@
     <script src="https://cdn.bootcss.com/vue/2.3.4/vue.min.js"></script>
     <title>Stand up 計時器</title>
 
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap.switch/4.0.0-alpha.1/css/bootstrap-switch.min.css">
     <script src="https://cdn.jsdelivr.net/bootstrap.switch/4.0.0-alpha.1/js/bootstrap-switch.min.js"></script>
 </head>
@@ -55,50 +56,68 @@
     }(document, 'script', 'facebook-jssdk'));</script>
 
 <div id="main-content" class="container">
-    <h2>
-        <img src="timer.ico" style="max-height: 120px; max-width: 120px">
-        健康 Stand up 計時器 !!!
-    </h2>
-    <p style="color: red">請在下方輸入 stand up 時間 </p>
 
-    <div class="make-switch switch-small">
-        自動記錄：<input type="checkbox" checked="true" data-checkbox="VALUE1" class="alert-status">
+    <div class="col-md-12">
+        <div class="col-md-offset-3">
+            <h2>
+                <span id="alert-msg" style="align-content: center;color:red">
+                    @{{alertMsg}}
+                </span>
+            </h2>
+        </div>
     </div>
 
-    <table class="table">
-        <thead>
-        <tr>
-            <th>小時</th>
-            <th>分鐘</th>
-            <th>秒鐘</th>
-            <th>
-            </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>
-                <input id="hour" type="text" v-model="hour">
-                <input type="button" value="歸零"
-                       class="btn btn-warning" @click="returnZero('hour')">
-            </td>
-            <td><input id="minute" type="text" v-model="minute">
-                <input type="button" value="歸零"
-                       class="btn btn-warning" @click="returnZero('minute')">
-            </td>
-            <td><input id="second" type="text" v-model="second">
-                <input type="button" value="歸零"
-                       class="btn btn-warning" @click="returnZero('second')">
-            </td>
-            <td>
-                <input type="button" value="設定" class="btn btn-primary"
-                @click="setLoopAlert()">
-            </td>
-        </tr>
-        </tbody>
-    </table>
-    <div class="fb-like" data-href="http://standup.orgates.net/" data-layout="standard" data-action="like"
-         data-size="small" data-show-faces="true" data-share="true"></div>
+    <div class="col-md-12">
+        <h2>
+            <img src="timer.ico" style="max-height: 120px; max-width: 120px">
+            健康 Stand up 計時器 !!!
+        </h2>
+        <p style="color: red">請在下方輸入 stand up 時間 </p>
+        <div class="make-switch switch-small">
+            自動記錄：<input type="checkbox" checked="true" data-checkbox="VALUE1" class="alert-status">
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>小時</th>
+                <th>分鐘</th>
+                <th>秒鐘</th>
+                <th>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <input id="hour" type="text" v-model="hour">
+                    <input type="button" value="歸零"
+                           class="btn btn-warning" @click="returnZero('hour')">
+                </td>
+                <td><input id="minute" type="text" v-model="minute">
+                    <input type="button" value="歸零"
+                           class="btn btn-warning" @click="returnZero('minute')">
+                </td>
+                <td><input id="second" type="text" v-model="second">
+                    <input type="button" value="歸零"
+                           class="btn btn-warning" @click="returnZero('second')">
+                </td>
+                <td>
+                    <input type="button" value="設定" class="btn btn-primary"
+                    @click="setLoopAlert()">
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-md-12">
+        <div class="fb-like" data-href="http://standup.orgates.net/" data-layout="standard" data-action="like"
+             data-size="small" data-show-faces="true" data-share="true"></div>
+    </div>
 
 </div>
 </body>
@@ -108,6 +127,7 @@
     var vm = new Vue({
         el: '#main-content',
         data: {
+            drop: 'ttt',
             hour: 1,
             minute: 0,
             second: 0,
@@ -115,10 +135,13 @@
             timeOut: null,
             notifyEnable: false,
             cookieName: 'timercookie',
-            notifyTitle: '工作要緊身體也要顧，起來走走動動吧'
+            notifyTitle: '工作要緊身體也要顧，起來走走動動吧',
+            notification: null,
+            alertMsg: '',
         },
         methods: {
             notifyMe: function () {
+
                 var title = this.notifyTitle;
 
                 var options = {
@@ -134,7 +157,7 @@
                 // Let's check whether notification permissions have already been granted
                 else if (Notification.permission === "granted") {
                     // If it's okay let's create a notification
-                    var notification = new Notification(title, options);
+                    this.notification = new Notification(title, options);
                 }
 
                 // Otherwise, we need to ask the user for permission
@@ -142,13 +165,24 @@
                     Notification.requestPermission(function (permission) {
                         // If the user accepts, let's create a notification
                         if (permission === "granted") {
-                            var notification = new Notification(title, options);
+                            this.notification = new Notification(title, options);
                         }
                     });
                 }
+
+                this.notification.onclick = function (event) {
+                    event.preventDefault(); // prevent the browser from focusing the Notification's tab
+                    location.reload()
+                }
+
+                this.notification.onclose = function (event) {
+                    event.preventDefault(); // prevent the browser from focusing the Notification's tab
+                    location.reload()
+                }
+
             },
             returnZero: function (type) {
-                
+
                 if (type == 'hour') {
                     vm.hour = 0;
                 }
@@ -169,14 +203,14 @@
                     this.storeTime();
                 }
 
-                alert('開始啟動每'+this.getSecond()/1000+'秒數起來走動走動！');
-
+                this.shortShowMsg();
                 this.loopAlert();
 
                 this.notifyEnable = true;
             },
             loopAlert: function () {
-                time = this.getSecond();
+
+                time = this.getSecond() * 1000;
 
                 if (time > 1) {
 
@@ -191,9 +225,9 @@
                 }
             },
             getSecond: function () {
-                return this.hour * 60 * 60 * 1000 +
-                        this.minute * 60 * 1000 +
-                        this.second * 1000;
+                return parseInt(this.hour * 60 * 60 +
+                        this.minute * 60 +
+                        this.second);
             },
             storeTime: function () {
                 name = this.cookieName;
@@ -229,6 +263,16 @@
                 var timeArray = this.getCookie(this.cookieName).split(':');
                 this.putVmTime(timeArray);
                 this.setLoopAlert();
+                this.alertMsg = '開始啟動每' + this.getSecond() + '秒數後起來走動走動！！';
+            },
+            shortShowMsg: function () {
+
+                this.alertMsg = '開始啟動每' + this.getSecond() + '秒數後起來走動走動！！';
+                $('#alert-msg').fadeIn(1);
+                this.fadeOutMsg();
+            },
+            fadeOutMsg: function () {
+                $('#alert-msg').fadeOut(5000);
             }
         }
     });
@@ -241,6 +285,7 @@
         });
 
         vm.init();
+        vm.fadeOutMsg();
     });
 
 </script>
