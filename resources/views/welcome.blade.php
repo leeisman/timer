@@ -147,14 +147,15 @@
                     });
                 }
             },
-            returnZero: function () {
-                if (type = 'hour') {
+            returnZero: function (type) {
+                
+                if (type == 'hour') {
                     vm.hour = 0;
                 }
-                if (type = 'minute') {
+                if (type == 'minute') {
                     vm.minute = 0;
                 }
-                if (type = 'second') {
+                if (type == 'second') {
                     vm.second = 0;
                 }
             },
