@@ -4,7 +4,7 @@ namespace Deployer;
 require 'recipe/laravel.php';
 
 // Project name
-set('application', 'my_project');
+set('application', 'timer');
 
 // Project repository
 set('repository', 'https://github.com/leeisman/timer.git');
@@ -13,7 +13,7 @@ set('repository', 'https://github.com/leeisman/timer.git');
 set('git_tty', true); 
 
 // Shared files/dirs between deploys 
-add('shared_files', []);
+// add('shared_files', []);
 add('shared_dirs', []);
 
 // Writable dirs by web server 
